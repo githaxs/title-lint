@@ -1,0 +1,13 @@
+name: Title Lint
+summary: Ensure all Pull Requests have the same title format.
+description: |
+  ## Features
+  * Supports regex checks
+  * Enforce Pull Requests to be linked to Jira tickets
+events:
+  - name: pull_request.edited|pull_request.(re)?opened
+    handler: run
+public: true
+beta: true
+runtime: python3
+type: check_meta
