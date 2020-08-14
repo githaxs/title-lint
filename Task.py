@@ -9,4 +9,13 @@ class Task():
     def run(self):
         check_regex = re.compile(self.task_settings.get('regex'))
         
-        return check_regex.match(self.raw_event.get('pull_request').get('title'))
+        result = check_regex.search(self.raw_event.get('pull_request').get('title'))
+
+
+        if not result:
+            return {
+                "result": False,
+                "message": "Pull Request Title must match regex: `%s`" % self.task_settings.get('regex')
+            }
+
+        return { "result": True }
