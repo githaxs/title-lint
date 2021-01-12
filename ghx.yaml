@@ -1,0 +1,12 @@
+task:
+  name: Title Lint
+  slug: title-lint
+  summary: Ensure all Pull Requests have the same title format.
+  description: |
+    ## Features
+    * Supports regex checks
+    * Enforce Pull Requests to be linked to Jira tickets
+  subscribed_events:
+    - pull_request.edited
+    - pull_request.opened
+    - pull_request.reopened
