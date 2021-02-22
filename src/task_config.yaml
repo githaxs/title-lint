@@ -10,3 +10,4 @@ task:
     - pull_request.edited
     - pull_request.opened
     - pull_request.reopened
+    - pull_request.synchronize

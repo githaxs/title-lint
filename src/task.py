@@ -19,6 +19,9 @@ class Task(BaseTask):
             check_regex.search(github_body.get("pull_request", {}).get("title", ""))
         )
 
+    def _requested_action(self):
+        pass
+    
     def _get_task_name(self):
         return "Title Lint"
 
