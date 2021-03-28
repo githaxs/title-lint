@@ -1,6 +1,7 @@
 task:
   name: Title Lint
   slug: title-lint
+  type: meta
   summary: Ensure all Pull Requests have the same title format.
   description: |
     ## Features
@@ -11,3 +12,4 @@ task:
     - pull_request.opened
     - pull_request.reopened
     - pull_request.synchronize
+    - check_run.rerequested

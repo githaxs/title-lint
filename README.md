@@ -1,10 +1,12 @@
 # Title Lint
 
-> Ensure all pull requests follow a standard naming convention
+The Title Lint task checks Pull Request titles conform to a standard regular expression.
 
-Following a standard naming convention on Pull Requests.
+You may want to use this application if you:
 
-Useful for linking Jira tickets to Pull Requests or following Conventional Commit messaging.
+* Follow conventional commit
+* Use Jira to link pull requests to Jira ticket
+* Prefer to have all Pull Request titles use the similar format
 
 ### Installation
 To Install globally:
@@ -25,9 +27,12 @@ Or add a configuration block in the repo itself, see configuration section below
 
 ### Configuration
 
-The following parameters can be set locally or globally:
-- regex
+|parameter|description|required|
+|---|---|---|
+|regex| The regular expression to test Pull Request titles agains| yes
 
+
+### Example Configurations
 
 To configure global settings:
 
@@ -46,13 +51,9 @@ title-lint:
 
 To configure repo specific settings:
 ```yaml
-# api-microservice/ghx.yml
+# <repo name>/ghx.yml
 
 title-lint:
   repo_settings:
     regex: "fix|feat: .*"
 ```
-
-
-
-
