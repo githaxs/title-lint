@@ -21,7 +21,7 @@ class Task(BaseTask):
 
     def _requested_action(self):
         pass
-    
+
     def _get_task_name(self):
         return "Title Lint"
 
