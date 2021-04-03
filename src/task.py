@@ -15,7 +15,7 @@ class Task(MetaTaskInterface):
     fail_text = ""
     actions = None
 
-    def _execute(self, github_body, settings) -> bool:
+    def execute(self, github_body, settings) -> bool:
         if settings is None or settings.get("regex") is None:
             self.fail_message = "Could not find valid settings for Title Lint. Please refer to the [documentation](https://github.com/githaxs/title-lint#installation) and ensure you have configured it correctly."
             return False
@@ -26,9 +26,6 @@ class Task(MetaTaskInterface):
         return bool(
             check_regex.search(github_body.get("pull_request", {}).get("title", ""))
         )
-
-    def _requested_action(self):
-        pass
 
     @property
     def fail_summary(self) -> str:
