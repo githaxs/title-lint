@@ -1,6 +1,7 @@
 import re
 
 from task_interfaces import MetaTaskInterface
+from task_interfaces import SubscriptionLevels
 
 
 class Task(MetaTaskInterface):
@@ -14,6 +15,7 @@ class Task(MetaTaskInterface):
     pass_text = ""
     fail_text = ""
     actions = None
+    subscription_level = SubscriptionLevels.FREE
 
     def execute(self, github_body, settings) -> bool:
         if settings is None or settings.get("regex") is None:
