@@ -22,6 +22,11 @@ class Task(MetaTaskInterface):
             self.fail_message = "Could not find valid settings for Title Lint. Please refer to the [documentation](https://github.com/githaxs/title-lint#installation) and ensure you have configured it correctly."
             return False
 
+        originator = github_body.get("pull_request", {}).get("user", {}).get("login")
+
+        if originator in settings.get("exclude_users", []):
+            return True
+
         self.regex = settings["regex"]
         check_regex = re.compile(self.regex)
 

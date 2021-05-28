@@ -25,3 +25,13 @@ def test_malformed_body():
     settings = {"regex": "fix: .*"}
 
     assert task.execute({}, settings) is False
+
+
+def test_exclude_users():
+    task = Task()
+    settings = {"regex": "fix: .*", "exclude_users": ["dependabot", "bar"]}
+    github_body = {
+        "pull_request": {"title": "fix deps", "user": {"login": "dependabot"}}
+    }
+
+    assert task.execute(github_body=github_body, settings=settings) is True
