@@ -1,10 +1,9 @@
 import re
 
-from task_interfaces import MetaTaskInterface
-from task_interfaces import SubscriptionLevels
+from task_interfaces import TaskInterface, SubscriptionLevels, TaskTypes
 
 
-class Task(MetaTaskInterface):
+class Task(TaskInterface):
     """
     Verifies the Title of a Pull Request matches a provided regex.
     """
@@ -16,6 +15,7 @@ class Task(MetaTaskInterface):
     fail_text = ""
     actions = None
     subscription_level = SubscriptionLevels.FREE
+    type = TaskTypes.WORKFLOW
 
     def execute(self, github_body, settings) -> bool:
         if settings is None or settings.get("regex") is None:
