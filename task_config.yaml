@@ -1,6 +1,6 @@
 name: Title Lint
 slug: title-lint
-type: meta
+type: content
 summary: Ensure all Pull Requests have the same title format.
 description: |
   ## Features
