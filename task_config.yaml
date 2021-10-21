@@ -1,11 +1,17 @@
 name: Title Lint
 slug: title-lint
 type: content
-summary: Ensure all Pull Requests have the same title format.
+summary: Check Pull Request Titles follow a standard convention.
+beta: false
+default_configuration:
+  installation:
+    org: false
+parameters:
+  - name: regex
+    description: Regular Expression to use to check Pull Request Titles
 description: |
-  ## Features
-  * Supports regex checks
-  * Enforce Pull Requests to be linked to Jira tickets
+  This task is helpful if you want to ensure Pull Requests are linked
+  with Ticketing Tools or you automatically generate release notes.
 subscribed_events:
   - pull_request.edited
   - pull_request.opened
