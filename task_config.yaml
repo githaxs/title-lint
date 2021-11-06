@@ -1,8 +1,10 @@
+version: v2
 name: Title Lint
 slug: title-lint
 type: content
 summary: Check Pull Request Titles follow a standard convention.
 beta: false
+subscription_level: 0
 default_configuration:
   installation:
     org: false
