@@ -26,6 +26,12 @@ def test_malformed_body():
 
     assert task.execute({}, settings) is False
 
+def test_regex_shorthands():
+    task = Task()
+    settings = {"regex": "\\w+-\\d+"}
+
+    assert task.execute({"pull_request": {"title": "fix: bad bug (OPS-000)"}}, settings) is True
+    assert task.execute({"pull_request": {"title": "feat: upgrade to latest githaxs(OPS)"}}, settings) is False
 
 def test_exclude_users():
     task = Task()

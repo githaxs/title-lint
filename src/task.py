@@ -1,7 +1,11 @@
 import re
+import logging
+import os
 
 from task_interfaces import TaskInterface, SubscriptionLevels, TaskTypes
 
+logger = logging.getLogger("config_service")
+logger.setLevel(os.environ.get("LOG_LEVEL", "ERROR"))
 
 class Task(TaskInterface):
     """
@@ -29,10 +33,16 @@ class Task(TaskInterface):
 
         self.regex = settings["regex"]
         check_regex = re.compile(self.regex)
-
-        return bool(
-            check_regex.search(github_body.get("pull_request", {}).get("title", ""))
+        title = github_body.get("pull_request", {}).get("title", "")
+        result = bool(
+            check_regex.search(title)
         )
+
+        logger.debug(f"Regex: {self.regex}")
+        logger.debug(f"Title: {title}")
+        logger.debug(f"Result: {result}")
+
+        return result
 
     @property
     def fail_summary(self) -> str:
