@@ -7,6 +7,7 @@ from task_interfaces import TaskInterface, SubscriptionLevels, TaskTypes
 logger = logging.getLogger("config_service")
 logger.setLevel(os.environ.get("LOG_LEVEL", "ERROR"))
 
+
 class Task(TaskInterface):
     """
     Verifies the Title of a Pull Request matches a provided regex.
@@ -26,9 +27,11 @@ class Task(TaskInterface):
             self.fail_message = "Could not find valid settings for Title Lint. Please refer to the [documentation](https://github.com/githaxs/title-lint#installation) and ensure you have configured it correctly."
             return False
 
-        originator = github_body.get("pull_request", {}).get("user", {}).get("login")
+        originator = github_body.get(
+            "pull_request", {}).get(
+            "user", {}).get("login")
 
-        if originator in settings.get("exclude_users", []):
+        if originator in settings.get("exclude_users", "").split(","):
             return True
 
         self.regex = settings["regex"]
