@@ -28,7 +28,7 @@ class Task(TaskInterface):
 
         originator = github_body.get("pull_request", {}).get("user", {}).get("login")
 
-        if originator in settings.get("exclude_users", []):
+        if originator in settings.get("exclude_users", "").split(","):
             return True
 
         self.regex = settings["regex"]

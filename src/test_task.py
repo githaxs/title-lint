@@ -35,7 +35,7 @@ def test_regex_shorthands():
 
 def test_exclude_users():
     task = Task()
-    settings = {"regex": "fix: .*", "exclude_users": ["dependabot", "bar"]}
+    settings = {"regex": "fix: .*", "exclude_users": "dependabot,bar"}
     github_body = {
         "pull_request": {"title": "fix deps", "user": {"login": "dependabot"}}
     }

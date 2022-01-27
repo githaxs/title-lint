@@ -11,6 +11,8 @@ default_configuration:
 parameters:
   - name: regex
     description: Regular Expression to use to check Pull Request Titles
+  - name: exclude_users
+    description: Comma separated list of users to exclude from Title Lint checks (i.e. dependabot)
 description: |
   This task is helpful if you want to ensure Pull Requests are linked
   with Ticketing Tools or you automatically generate release notes.
