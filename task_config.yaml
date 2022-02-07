@@ -14,8 +14,23 @@ parameters:
   - name: exclude_users
     description: Comma separated list of users to exclude from Title Lint checks (i.e. dependabot)
 description: |
-  This task is helpful if you want to ensure Pull Requests are linked
-  with Ticketing Tools or you automatically generate release notes.
+  As your Engineering Team grows, the number of channels for communication grows <a href="https://project-management.info/number-of-communication-channels-pmp-formula-calculator/">exponentially</a>
+  making tools which simplify communication more important.
+
+  Title Lint helps to simplify communication for your Engineering Team by helping you enforce standardized Pull Request Titles and hence Git Commit Messages.
+
+  Creating a standard makes writing commit messages <b>easier</b> for your team as they no longer have to think about how to
+  write in their messages. Everyone follows the same standard and writing commit messages becomes muscle memory.
+
+  Standard commit messages also make it easier for new contributors to read the Changelog to identify what has been done recently - the same way code is easier to
+  read if it is formatted consistently. And on the topic of Changelog, standard commit messages make automatic Changelog creation possible.
+
+  Githaxs recommends you adopt a standard such as <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commit</a>. You can also incorpoorate <a href="https://gitmoji.dev/">Gitmoji<a>
+  to make your commit messages more visually appealing.
+  
+  In addition to Conventional Commit, it is also helpful to include references to the ticket which prompted the Pull Request. Tools such as Jira can parse the Pull Request Title and automatically
+  link the ticket to the Pull Request.
+
 subscribed_events:
   - pull_request.edited
   - pull_request.opened
